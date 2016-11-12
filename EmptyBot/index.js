@@ -1,6 +1,7 @@
 "use strict";
 var builder = require("botbuilder");
 var botbuilder_azure = require("botbuilder-azure");
+var unicodelib = require("unicode-properties");
 
 var useEmulator = (process.env.NODE_ENV == 'development');
 
@@ -28,18 +29,18 @@ bot.dialog('/', function (session) {
         //return;
     }
     //else if (session.message.text=="CardTypesTest") {
-    //    //Activity ctResult = await cardTypesTest(message, connector);
-    //    var reply = session.send(replyMessage);
-    //    return;
+    //      var ctResult = await cardTypesTest(message, connector);
+    //      var reply = session.send(replyMessage);
+    //      return;
     //}
-    //else if (session.message.text == "OneOffTests") {
-    //    oneOffTests_facebook_quick_replies(session);
-    //    return;
-    //}
-    //else if (session.message.text == "FBHeroCard") {
-    //    oneOffTests_HeroCard_WithShare(session);
-    //    return;
-    //}
+    else if (session.message.text == "OneOffTests") {
+        oneOffTests_facebook_quick_replies(session);
+        return;
+    }
+    else if (session.message.text == "FBHeroCard") {
+        oneOffTests_HeroCard_WithShare(session);
+        return;
+    }
 
     replyMessage.text(translateToPigLatin(session.message.text));
     session.send(replyMessage);
