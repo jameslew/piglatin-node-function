@@ -147,7 +147,7 @@ function translateToPigLatin(message)
     {
         if (word !== "") {
             firstLetter = word.substring(0, 1);
-            restOfWord = word.substring(1, word.length - 1);
+            restOfWord = word.substring(1, word.length);
             letterPos = vowels.indexOf(firstLetter);
             if (letterPos == -1) {
                 //it's a consonant
