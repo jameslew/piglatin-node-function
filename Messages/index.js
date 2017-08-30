@@ -37,8 +37,8 @@ bot.dialog('/', function (session) {
         oneOffTests_facebook_quick_replies(session);
         return;
     }
-    else if (session.message.text == "FBHeroCard") {
-        oneOffTests_HeroCard_WithShare(session);
+    else if (session.message.text == "EmojiRepeater") {
+        emojiRepeater(session);
         return;
     }
 
@@ -130,6 +130,13 @@ function oneOffTests_HeroCard_WithShare(session) {
         .buttons([new builder.CardAction.openUrl(session, 'https://docs.botframework.com/en-us/', 'Get Started'), {"type":"element_share"}]);
 
     replyMessage.addAttachment(card);
+    session.send(replyMessage);
+}
+
+function emojiRepeater(session) {
+    
+    var replyMessage = new builder.Message(session)
+        .text(session.Message.text);
     session.send(replyMessage);
 }
 
