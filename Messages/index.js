@@ -38,7 +38,8 @@ bot.dialog('/', function (session) {
         return;
     }
     else if (session.message.text == "EmojiRepeater") {
-        emojiRepeater(session);
+        replyMessage.text(session.message.text);
+        session.send(replyMessage);
         return;
     }
 
@@ -137,7 +138,6 @@ function emojiRepeater(session) {
     
     var replyMessage = new builder.Message(session)
         .text(session.Message.text);
-    session.send(replyMessage);
 }
 
 function translateToPigLatin(message)
