@@ -39,6 +39,7 @@ bot.dialog('/', function (session) {
     }
     else if (session.message.text.substr(0, 13) == "EmojiRepeater") {
         replyMessage.text(session.message.text);
+        replyMessage.textFormat("markdown");
         session.send(replyMessage);
         return;
     }
