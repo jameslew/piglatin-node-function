@@ -37,7 +37,7 @@ bot.dialog('/', function (session) {
         oneOffTests_facebook_quick_replies(session);
         return;
     }
-    else if (session.message.text == "EmojiRepeater") {
+    else if (session.message.text.substr(0, 13) == "EmojiRepeater") {
         replyMessage.text(session.message.text);
         session.send(replyMessage);
         return;
