@@ -42,9 +42,13 @@ bot.dialog('/', function (session) {
         session.send(replyMessage);
         return;
     }
+    else
+    {
+        replyMessage.text(translateToPigLatin(session.message.text));
+        session.send(replyMessage);
+    }
 
-    replyMessage.text(translateToPigLatin(session.message.text));
-    session.send(replyMessage);
+
 });
 
 
